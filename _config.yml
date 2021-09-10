@@ -2,10 +2,10 @@ title: En .NET students blogg
 email: Carljonaslindell@gmail.com
 description: Med fokus på molntjänster
 author: Jonas Lindell
-baseurl: "/my-blog"
-url: "https://jonaslindell-th.github.io"
-# baseurl: ""
-# url: ""
+# baseurl: "/my-blog"
+# url: "https://jonaslindell-th.github.io"
+baseurl: ""
+url: ""
 
 # Social Profiles
 twitter_username: SBootstrap
