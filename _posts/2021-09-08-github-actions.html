@@ -1,0 +1,65 @@
+---
+layout: post
+title: "Github Actions"
+date: 2021-09-08 20:15:10 +0200
+categories: jekyll update
+background: "/img/posts/cloudcomputing.jpg"
+---
+
+<h2 class="section-heading">
+  Introduction to Github Actions, Continuous Integration (CI)
+</h2>
+
+<hr />
+
+<h3>What is a CI Pipeline?</h3>
+
+<p>
+  CI is a practice which facilitates merging code to the main branch and/or
+  commiting code to your branch continuously. By introducing a CI pipeline in
+  Github actions for example, a commit to your branch or merge attempt to the
+  main branch (depending on what triggers you choose to use), triggers a series
+  of automated steps. These steps may involve running the code build, unit
+  tests, code analysis and more.
+</p>
+
+<p>
+  If a new branch were to pass all of the automated steps in the pipeline
+  without any errors, a merge to the main branch is possible and may continue to
+  the next stage e.g. deployment to the cloud. Should any of the steps fail, the
+  development team may go through the error report, so that they may fix the
+  issues and the merge attempt is prevented from progressing to any further
+  stages.
+</p>
+
+<p>
+  As to describe this proccess, the pipeline acts as a safety net between
+  commits that may "break" the application and a fully functional deployment.
+</p>
+
+<h3>What benefits does CI bring to the table?</h3>
+
+<p>
+  By aiming at merging to the main branch often and in short iterations, running
+  automated builds and tests continously through out development, developers can
+  catch any errors early in the development stage. Reducing time spent trying to
+  find and fix bugs as well as preventing them from reaching deployment.
+</p>
+
+<h3>How I implemented a CI pipeline into an existing project</h3>
+
+<hr />
+
+<p>
+  As a first step, a .github directory is needed in my repository, this is where
+  all Github specific files should be located. In this directory I introduce a
+  workflows directory, this directory should contain my workflow yaml file, what
+  I name this file besides from the .yaml extension is not important.
+</p>
+
+<p>
+  Once I have my yaml file, I start off by naming my workflow, this will be
+  displayed in my repository's actions page once I trigger the workflow.
+</p>
+
+<code>name: workflow demonstration</code>
