@@ -62,14 +62,22 @@ background: "/img/posts/cloudcomputing.jpg"
   displayed in my repository's actions page once I trigger the workflow.
 </p>
 
-<code>name: workflow demonstration</code>
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/CI-pipeline/cipipe-step1.png?raw=true"
+  alt="Yaml step one"
+/>
 
 <p>
   The next step is to add the "on:" event which specifies on what event github
   should trigger the workflow.
 </p>
 
-<code> name: workflow demonstration <br />on: [push] </code>
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/CI-pipeline/cipipe-step2.png?raw=true"
+  alt="Yaml step one"
+/>
 
 <p>
   Now I have to specify what jobs and steps to run once this event is triggered,
@@ -77,3 +85,85 @@ background: "/img/posts/cloudcomputing.jpg"
   my unit tests in this job, I find: "Run build and tests" a suitable name for
   this.
 </p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/CI-pipeline/cipipe-step3.png?raw=true"
+  alt="Yaml step one"
+/>
+
+<p>
+  Next my workflow needs to know what virtual enviroment to use to run this on,
+  in my case i prefer to use linux ubuntu since performence is slightly faster.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/CI-pipeline/cipipe-step4.png?raw=true"
+  alt="Yaml step one"
+/>
+
+<p>
+  Now I have to consider what steps I need in order to run the build and to run
+  the unit tests. In my case in order to run a build I need access to the code,
+  which can be done by using the - uses: actions/checkout@v2 statement, this
+  step clones the code from the repository to the virtual environment. Since
+  this application is running on the .NET framework I need to make sure the
+  virtual environment has that installed aswell, by using the - uses:
+  actions/setup-dotnet@v1 statement and specifying a dotnet version to match
+  this projects dotnet version.
+</p>
+
+<p>My yaml file now looks like this:</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/CI-pipeline/cipipe-step5.png?raw=true"
+  alt="Yaml step one"
+/>
+
+<p>
+  Now I am all set up to continue to the last two steps, running the build and
+  unit tests. I simply tell these steps to run a dotnet build and dotnet test
+  against the virtual environment and by providing the specific path each step
+  should by running in. Now the final result of my workflow file end up looking
+  like this:
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/CI-pipeline/cipipe-step6.png?raw=true"
+  alt="Yaml step one"
+/>
+
+<p>
+  My automated workflow now triggers everytime I make a commit in this
+  repository, running the steps and notifies me if any errors occurs in either
+  the build or any of the unit tests.
+</p>
+
+<h3>Conclusion</h3>
+
+<hr />
+
+<p>
+  By implementing a CI pipeline to my repository, facilitates developing new
+  features to my projects by catching errors at an early stage, reducing time
+  spent trying to locate it. A nice feature Github Actions use, is notifying any
+  occuring errors by email if I happen to overlook the latest commits workflow
+  result. Although, this feature may also be irritating when getting stuck on an
+  error, by flooding my mail with notifications.
+</p>
+
+<h3>References</h3>
+
+<hr />
+
+<a href="https://semaphoreci.com/continuous-integration"
+  >Semaphoreci - Continuous Integration</a
+>
+<br />
+<a
+  href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions"
+  >Github docs - Workflow syntax for github actions</a
+>
