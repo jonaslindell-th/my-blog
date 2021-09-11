@@ -63,3 +63,17 @@ background: "/img/posts/cloudcomputing.jpg"
 </p>
 
 <code>name: workflow demonstration</code>
+
+<p>
+  The next step is to add the "on:" event which specifies on what event github
+  should trigger the workflow.
+</p>
+
+<code> name: workflow demonstration <br />on: [push] </code>
+
+<p>
+  Now I have to specify what jobs and steps to run once this event is triggered,
+  I start by naming my job. In my case I choose to build the application and run
+  my unit tests in this job, I find: "Run build and tests" a suitable name for
+  this.
+</p>
