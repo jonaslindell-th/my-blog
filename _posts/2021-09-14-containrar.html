@@ -81,8 +81,9 @@ background: "/img/posts/containers.jpg"
 <p>
   Med dependencies installerade är de dags att kopiera över alla filer till min
   image och kompilera applikationen och dess dependencies till en ny mapp för
-  deployment med hjälp av dotnet publish kommandot. På så sätt får jag tillgång
-  till min dll fil för att kunna köra applikationen i min container.
+  deployment med hjälp av dotnet publish kommandot. På så sätt kan jag sen få
+  tillgång till min dll fil för att kunna köra applikationen i min
+  produktionsimage.
 </p>
 
 <img
@@ -91,4 +92,29 @@ background: "/img/posts/containers.jpg"
   alt="Bild på copy och dotnet publish"
 />
 
+<p>
+  Projektet är nu byggt och publicerat till ett out directory i steg ett som
+  agerat som min byggmiljö. I steg två så ska jag sätta upp mig produktionsmiljö
+  som ska köra applikationen med hjälp av dll filen från min out mapp. Här
+  hämtar jag in en ny image för aspnet 3.1 och kombinerar den med min tidigare
+  build image genom att kopiera in min out folder från min byggmiljö. Detta
+  kallas för en flerstegs dockerfil eller "multistage dockerfile". På så sätt
+  får jag en image som kan köra containern på min dator eller i molnet.
+</p>
+
+<p>
+  Det är här jag med samma typ av instruktioner som i steg ett, "FROM",
+  "Workdir" och Copy men med undantaget att jag nu instruerar en entrypoint. Vad
+  min entrypoint gör i det här fallet är att exekvera min dll fil i en aspnet
+  3.1 miljö och resultatet av min dockerfil ser nu ut så här.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Containrar/docker-steg-5.png?raw=true"
+  alt="Resultatet av min dockerfil"
+/>
+<span style="margin-left: -25%" class="caption text-muted"
+  >Slutresultatet av min dockerfil</span
+>
 <!-- Docker build (skapa image), Docker run (Köra som en container) -->
