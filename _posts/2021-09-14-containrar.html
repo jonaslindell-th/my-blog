@@ -1,7 +1,53 @@
 ---
 layout: post
 title: "Containrar"
-date: 2021-09-14 17:15:10 +0200
+date: 2021-09-14 14:09:10 +0200
 categories: jekyll update
-background: "/img/posts/devops.jpg"
+background: "/img/posts/containers.jpg"
 ---
+
+<h2 class="section-heading">Containrar och Github Actions</h2>
+
+<hr />
+<br />
+
+<h3>Containeriserad Webbapplikation</h3>
+
+<p>
+  För att komma igång med docker och containers måste jag först se till att jag
+  har Docker desktop installerat lokalt. Därefter introducerar jag en dockerfil
+  i mitt repository, den här filen kommer innehålla instruktioner för att skapa
+  upp min docker image av webbapplikationen och utifrån den här imagen kunna
+  köra som en container.
+</p>
+
+<p>
+  Det är viktigt att den här filen heter just Dockerfile utan någon filändelse
+  och ligger placerad i applikationens "root" mapp, denna fil kommer att
+  innehålla alla instruktioner för att skapa upp en container image.
+</p>
+
+<p>
+  En docker image består av flera lager och en dockerfil <b>måste</b> börja med
+  en FROM instruktion, den här instruktionen specificerar vilken "parent" eller
+  bas image som jag vill använda mig av. Vad jag väljer här kommer agera som
+  grundlagret och byggmiljö inom min container som resterande instruktioner är
+  baserade på.
+</p>
+
+<p>
+  Eftersom detta är en dotnet webbapplikation jag vill skapa en container för,
+  så vill jag utgå från dotnets software developer kit som innehåller allt jag
+  behöver för att kunna bygga och köra dotnet core applikationer som min parent
+  image.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/CI-pipeline/cipipe-step1.png?raw=true"
+  alt="Bild på min from instruktion"
+/>
+
+<p></p>
+
+<!-- Docker build (skapa image), Docker run (Köra som en container) -->
