@@ -62,4 +62,19 @@ background: "/img/posts/containers.jpg"
   alt="Bild på min workdir instruktion"
 />
 
+<p>
+  För att försäkra mig om att min parent image innehåller de dependencies jag
+  behöver för att köra min webbapplikation så kopierar jag in min csproj fil,
+  som i sin tur innehåller den information kommandot dotnet restore behöver för
+  att installera de dependencies som saknas.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Containrar/docker-steg-3.png?raw=true"
+  alt="Bild på copy och restore"
+/>
+<span style="margin-left: -25%" class="caption text-muted"
+  >Min dockerfil ser nu ut så här</span
+>
 <!-- Docker build (skapa image), Docker run (Köra som en container) -->
