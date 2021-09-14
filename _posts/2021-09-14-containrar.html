@@ -65,8 +65,8 @@ background: "/img/posts/containers.jpg"
 <p>
   För att försäkra mig om att min parent image innehåller de dependencies jag
   behöver för att köra min webbapplikation så kopierar jag in min csproj fil,
-  som i sin tur innehåller den information kommandot dotnet restore behöver för
-  att installera de dependencies som saknas.
+  som i sin tur innehåller den information kommandot dotnet restore behöver och
+  läser av för att installera de dependencies som saknas.
 </p>
 
 <img
@@ -77,4 +77,18 @@ background: "/img/posts/containers.jpg"
 <span style="margin-left: -25%" class="caption text-muted"
   >Min dockerfil ser nu ut så här</span
 >
+
+<p>
+  Med dependencies installerade är de dags att kopiera över alla filer till min
+  image och kompilera applikationen och dess dependencies till en ny mapp för
+  deployment med hjälp av dotnet publish kommandot. På så sätt får jag tillgång
+  till min dll fil för att kunna köra applikationen i min container.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Containrar/docker-steg-4.png?raw=true"
+  alt="Bild på copy och dotnet publish"
+/>
+
 <!-- Docker build (skapa image), Docker run (Köra som en container) -->
