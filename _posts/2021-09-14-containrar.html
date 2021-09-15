@@ -38,8 +38,8 @@ background: "/img/posts/containers.jpg"
 <p>
   Eftersom detta är en dotnet webbapplikation jag vill skapa en container för,
   så vill jag utgå från dotnets software developer kit som innehåller allt jag
-  behöver för att kunna bygga och köra dotnet core applikationer som min parent
-  image.
+  behöver för att kunna bygga, utveckla och köra dotnet core applikationer som
+  min parent image.
 </p>
 
 <img
@@ -98,9 +98,7 @@ background: "/img/posts/containers.jpg"
   som ska köra applikationen med hjälp av dll filen från min out mapp. Här
   hämtar jag in en ny image för aspnet 3.1 och kombinerar den med min tidigare
   build image genom att kopiera in min out folder från min byggmiljö. Detta
-  kallas för en flerstegs dockerfil eller "multistage dockerfile". På så sätt
-  får jag en image för att utveckla/bygga min applikation och en för att köra
-  applikationen i en container på min dator eller i molnet.
+  kallas för en flerstegs dockerfil eller "multistage dockerfile".
 </p>
 
 <p>
@@ -121,5 +119,17 @@ background: "/img/posts/containers.jpg"
 <span style="margin-left: -25%" class="caption text-muted"
   >Slutresultatet av min dockerfil</span
 >
+
+<br />
+
+<h3>Bygga min image och köra den i en container</h3>
+
+<p>Med min dockerfil färdig kan jag nu skapa upp min docker image.</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Containrar/dockerbuild.png?raw=true"
+  alt="Mitt docker build kommando"
+/>
 
 <!-- Docker build (skapa image), Docker run (Köra som en container) -->
