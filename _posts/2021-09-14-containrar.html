@@ -191,4 +191,27 @@ background: "/img/posts/containers.jpg"
   alt="Bild på webbapplikationen"
 />
 
-<!-- Docker build (skapa image), Docker run (Köra som en container) -->
+<h3>Pipeline för att publicera min container till Github Packages</h3>
+
+<p>
+  Nu har jag lyckats skapa upp en container som kör min webbapplikation, i den
+  här delen kommer jag skapa upp en CI pipeline som publicerar min container
+  till github packages. Jag inleder med att visa upp och gå igenom hur min
+  workflow fil fungerar.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Containrar/buildpushpipeline.png?raw=true"
+  alt="Bild på build push workflow"
+/>
+
+<p>
+  I mitt tidigare inlägg
+  <a
+    href="https://jonaslindell-th.github.io/my-blog/jekyll/update/2021/09/08/github-actions.html"
+    >Github Actions</a
+  >
+  gått igenom bland annat uttrycken name:, on:, jobs, runs-on och checkout. Vad
+  som är unikt här är att jag
+</p>
