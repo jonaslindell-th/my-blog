@@ -218,7 +218,7 @@ background: "/img/posts/containers.jpg"
   docker/login-action för att authentisera mig mot githubs container registry.
   registry: ghcr.io specificerar att jag vill använda mig av Github Container
   Registry. Som användarnamn hämtar github automatiskt in in den användare som
-  lägger en commit med ${{ github.actor }}. Istället för att använda mitt
+  lägger en commit med <pre>{{ github.actor }}</pre>$. Istället för att använda mitt
   lösenord för att logga in har jag genererat en Personal Access Token, men att
   direkt lägga in min token i min workflow fil för allmänheten att beskåda så
   har jag valt att dölja den med hjälp av att skapa upp en repository secret.
