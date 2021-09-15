@@ -217,16 +217,16 @@ background: "/img/posts/containers.jpg"
   Container Registry, här använder jag en github action uses:
   docker/login-action för att authentisera mig mot githubs container registry.
   registry: ghcr.io specificerar att jag vill använda mig av Github Container
-  Registry. Som användarnamn hämtar github automatiskt in in den användare som
-  lägger en commit med <pre>{{ github.actor }}</pre>$. Istället för att använda mitt
-  lösenord för att logga in har jag genererat en Personal Access Token, men att
-  direkt lägga in min token i min workflow fil för allmänheten att beskåda så
-  har jag valt att dölja den med hjälp av att skapa upp en repository secret.
-  Där angav jag ett nyckelord som jag kan ange i min workflow fil för att ta
-  fram min riktiga access token. Mitt nyckelord är PAT och för att referera till
-  min secret så använder jag mig av ${{ secrets.PAT }}. Man bör lägga all
-  känslig data i secrets som apinycklar och användarnamn och lösenord, i mitt
-  fall är det bara min personal access token jag vill skydda.
+  Registry. <br />Som användarnamn hämtar github automatiskt in in den användare
+  som lägger en commit med github.actor. Istället för att använda mitt lösenord
+  för att logga in har jag genererat en Personal Access Token, men att direkt
+  lägga in min token i min workflow fil för allmänheten att beskåda så har jag
+  valt att dölja den med hjälp av att skapa upp en repository secret. Där angav
+  jag ett nyckelord som jag kan ange i min workflow fil för att ta fram min
+  riktiga access token. Mitt nyckelord är PAT och för att referera till min
+  secret så använder jag mig av secrets.PAT. Man bör lägga all känslig data i
+  secrets som apinycklar och användarnamn och lösenord, i mitt fall är det bara
+  min personal access token jag vill skydda.
 </p>
 
 <p>
