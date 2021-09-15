@@ -231,5 +231,33 @@ background: "/img/posts/containers.jpg"
 
 <p>
   Efter lyckad inloggning går min workflow vidare till nästa steg som går ut på
-  att bygga och publicera min container image på github packages.
+  att bygga och publicera min container image på github packages med uses:
+  docker/build-push-action följt av mina alternativ push: true som när sant
+  pushar min image till registryt om min build är lyckad. file: specificerar
+  vilken fil jag ska skapa en image ifrån, i mitt fall Dockerfile i samma
+  directory. tags: specificerar vilka taggar som min image kommer att ha på
+  githubs container registry.
 </p>
+
+<p>
+  Efter att ha pushat upp mitt workflow på github så triggas mitt workflow event
+  vilket resulterar i att jag har ett nytt package på min profil som innehåller
+  min image.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Containrar/package.png?raw=true"
+  alt="Bild på mina packages"
+/>
+
+<p>
+  Jag kan nu dra hem den lokalt med docker pull
+  ghcr.io/jonaslindell-th/helloworld:6 och köra med docker run.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Containrar/runpackage.png?raw=true"
+  alt="Bild när jag kör min nedladdade package"
+/>
