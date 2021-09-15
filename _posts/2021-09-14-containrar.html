@@ -154,7 +154,8 @@ background: "/img/posts/containers.jpg"
   Som standard när man kör en container så kommer den inte publicera några
   portar jag kan komma åt utifrån, så jag behöver se till att jag själv
   publicerar porten som min container kör på och på så sätt skapa en brygga
-  mellan min container till en port hos mig som docker host. I mitt fall så
+  mellan min container till en port hos mig som docker host. En container kör
+  per default på port 80 om man inte angett något annat och i mitt fall så
   portmappar jag port 80 hos mig till port 80 i containern, så jag kan komma åt
   webbapplikationen som kör i containern i min webbläsare. Jag måste även ange
   vilken image jag vill köra och det räcker egentligen att ange dom tre första
@@ -165,7 +166,29 @@ background: "/img/posts/containers.jpg"
 <img
   class="img-fluid"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Containrar/runkommando.png?raw=true"
-  alt="Mitt docker build kommando"
+  alt="Docker run kommando"
+/>
+
+<p>
+  Med docker ps kan jag se vilka containrar jag för nuvarande kör, och kan även
+  se över min portmappning, vilken image den utgår från, container id och hur
+  länge den legat uppe.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Containrar/korandecontainers.png?raw=true"
+  alt="Terminalbild på min körande container"
+/>
+
+<p>
+  Jag kan nu komma åt min webbapplikation i webbläsaren på localhost port 80.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Containrar/korpalocalhost.png?raw=true"
+  alt="Bild på webbapplikationen"
 />
 
 <!-- Docker build (skapa image), Docker run (Köra som en container) -->
