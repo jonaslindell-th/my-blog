@@ -150,4 +150,22 @@ background: "/img/posts/containers.jpg"
   alt="Mitt docker build kommando"
 />
 
+<p>
+  Som standard när man kör en container så kommer den inte publicera några
+  portar jag kan komma åt utifrån, så jag behöver se till att jag själv
+  publicerar porten som min container kör på och på så sätt skapa en brygga
+  mellan min container till en port hos mig som docker host. I mitt fall så
+  portmappar jag port 80 hos mig till port 80 i containern, så jag kan komma åt
+  webbapplikationen som kör i containern i min webbläsare. Jag måste även ange
+  vilken image jag vill köra och det räcker egentligen att ange dom tre första
+  bokstäver/siffror i min image id. Jag anger även att jag vill köra i -d
+  (detached mode) för att inte låsa min kommandotolk.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Containrar/runkommando.png?raw=true"
+  alt="Mitt docker build kommando"
+/>
+
 <!-- Docker build (skapa image), Docker run (Köra som en container) -->
