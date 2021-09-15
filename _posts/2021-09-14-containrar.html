@@ -99,14 +99,18 @@ background: "/img/posts/containers.jpg"
   hämtar jag in en ny image för aspnet 3.1 och kombinerar den med min tidigare
   build image genom att kopiera in min out folder från min byggmiljö. Detta
   kallas för en flerstegs dockerfil eller "multistage dockerfile". På så sätt
-  får jag en image som kan köra containern på min dator eller i molnet.
+  får jag en image för att utveckla/bygga min applikation och en för att köra
+  applikationen i en container på min dator eller i molnet.
 </p>
 
 <p>
   Det är här jag med samma typ av instruktioner som i steg ett, "FROM",
   "Workdir" och Copy men med undantaget att jag nu instruerar en entrypoint. Vad
   min entrypoint gör i det här fallet är att exekvera min dll fil i en aspnet
-  3.1 miljö och resultatet av min dockerfil ser nu ut så här.
+  3.1 miljö, anledningen till att jag byter till aspnet 3.1 i min produktions
+  image är att jag inte längre behöver tillgång till alla developer tools som
+  medföljer i sdk när jag ska köra applikationen, vilket resulterar i en mindre
+  image size. Resultatet av min dockerfil ser nu ut så här.
 </p>
 
 <img
@@ -117,4 +121,5 @@ background: "/img/posts/containers.jpg"
 <span style="margin-left: -25%" class="caption text-muted"
   >Slutresultatet av min dockerfil</span
 >
+
 <!-- Docker build (skapa image), Docker run (Köra som en container) -->
