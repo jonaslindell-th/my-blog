@@ -200,3 +200,45 @@ background: "/img/posts/microsoft-azure.jpg"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/runningonazure.png?raw=true"
   alt="Bild på anrop mot min azure funktion"
 />
+
+<h3>Continuous Deployment med Github Actions</h3>
+
+<p>
+  I det här steget kommer jag skapa upp mitt workflow för att kunna deploya min
+  funktions applikation direkt från Github till Azure med hjälp av Azure
+  Functions Action.
+</p>
+
+<p>
+  Jag börjar med att namnge och ange vad som ska initiera mitt workflow, i mitt
+  fall väljer jag att trigga det manuellt med workflow_dispatch: från actions
+  fliken. Därefter definerar jag några environment variabler för mina sökvägar
+  och namnet på min azure function i molnet.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/triggerandenv.png?raw=true"
+  alt="Inledning på min workflow"
+/>
+
+<p>
+  Sen väljer jag att köra på senaste versionen av ubuntu och klonar in den
+  senaste koden från mitt repository till den virtuella miljön med
+  actions/checkout. Därefter installerar jag den senaste versionen av dotnet med
+  actions/setup-dotnet, den hämtar den senaste versionen av dotnet eftersom jag
+  använder mig av en odefinerad env.DOTNET_Version variabel, eftersom den är
+  odefinerad så hämtas den senaste versionen in som default.
+</p>
+
+<p>
+  Med dotnet installerat kan jag nu kalla på dotnet restore, som i sin tur
+  hämtar de senaste nuget packeten till den virtuella miljön och min workflow
+  fil ser nu ut så här.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/workflowwithrestore.png?raw=true"
+  alt="Inledning på min workflow"
+/>
