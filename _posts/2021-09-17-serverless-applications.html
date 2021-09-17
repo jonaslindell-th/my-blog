@@ -1,0 +1,78 @@
+---
+layout: post
+title: "Serverlösa applikationer"
+date: 2021-09-17 13:40:10 +0200
+categories: jekyll update
+background: "/img/posts/microsoft-azure.jpg"
+---
+
+<h2 class="section-heading">Serverless och Function as a service</h2>
+
+<hr />
+<br />
+
+<h3>Vad är Serverless?</h3>
+
+<p>
+  Det är fortfarande servrar involverat när man pratar serverless, men
+  utvecklare kan bortse från att sköta om servrar och fokusera på apputveckling
+  om man använder sig av en molnbaserad serverlös utvecklingsmodell.
+</p>
+
+<p>
+  Molnleverantören sköter skalning, underhåll och tillhandahållande så att
+  utvecklare kan fokusera på att packetera sin kod i containrar för
+  distrubution. Servelösa applikationer skalar automatiskt upp och ner enligt
+  efterfrågan, resultatet av de här kan leda till att en inaktiv serverlös
+  funktion inte behöver kosta någonting.
+</p>
+
+<h3>Vad är Function as a Service?</h3>
+
+<p>
+  FaaS är ett sätt att simplificera distrubution av applikationer till molnet,
+  istället för att distrubuera hela applikationer så kan man distrubuera delar
+  av en applikation i form av funktioner på så sätt kan man flytta in en logisk
+  funktion till en molnplatform som kör funktionen vid efterfrågan utan att
+  behöva fokusera på tillhandahållande och underhåll av servrar.<br />
+  FaaS använder sig av den serverlösa utvecklingsmodellen och funktionerna
+  laddas bara in när de behövs och kan kopieras automatiskt vid hög efterfrågan
+  för att klara av belastningen. Vid låg belastning raderas kopior vilket leder
+  till minskade kostnader.
+</p>
+
+<h3>Min FaaS Kalkylator</h3>
+
+<p>
+  Min kalkylator ska bestå av en Azure HttpTrigger Funktion som tar två tal som
+  frågeparametrar och returnerar summan av talen.
+</p>
+
+<p>
+  För att komma igång så har jag valt att skapa upp ett nytt repository på
+  github eftersom jag tänkt deploya min applikation till Azure genom Github
+  Actions i ett senare skede.
+</p>
+
+<p>
+  Efter att ha installerat Azure Functions Core Tools så kan jag skapa upp en ny
+  functionapp med kommandotolken genom följande uttryck:
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/httpdemo.png?raw=true"
+  alt="Bild på CLI kommandot func new --template"
+/>
+
+<p>
+  Från templaten får jag en http funktion som tar ett namn i form av en string
+  query och som sen returnerar en sträng.<br />
+  Här lägger jag nu in min kod för min simpla additionskalkylator.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/simpleaddition.png?raw=true"
+  alt="Kod för min kalkylator"
+/>
