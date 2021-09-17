@@ -315,3 +315,66 @@ background: "/img/posts/microsoft-azure.jpg"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/deploydemo.png?raw=true"
   alt="Demo av deployment till azure"
 />
+<br />
+<hr />
+<br />
+<h3>Säkerhetshot</h3>
+
+<p>
+  Det finns en rad säkerhetshot att tänka på när man använder sig av serverlös
+  applikationsutveckling. Injections är en typ av säkerhetsrisk som ökar vid
+  serverlösa funktioner, man kan inte bara tänka på injektioner genom API
+  förfrågningar och skydda sig genom input validering, eftersom funktionerna
+  även kan triggas från olika event som till exempel dataströmnings processer,
+  databas ändringar, email och kod ändringar på så sätt finns det inte längre
+  någon typ av kontroll för att validera eventet.
+</p>
+
+<p>
+  För att förhindra det här så bör man aldrig lita på input från användare,
+  genom exempelvis regex input validering. Funktioner bör ha lägsta möjliga
+  rättigheter för att utföra sin uppgift och se över alla typer av events
+  åtkomst av systemet.
+</p>
+
+<p>
+  I mitt fall känner jag inte att jag har någon typ av känslig information att
+  komma över med min simpla http kalkylator funktion, som inte har tillgång till
+  någon databas. Däremot hade min workflow fil kunnat innehålla min
+  publiceringsprofil som jag istället valt att gömma som en repository secret.
+</p>
+
+<p></p>
+
+<h3>Referenser</h3>
+
+<hr />
+
+<a href="https://owasp.org/www-project-serverless-top-10/"
+  >OWASP - Serverless top 10</a
+>
+<br />
+<a href="https://geekflare.com/know-about-serverless/"
+  >Geekflare - Know about serverless</a
+>
+<br />
+<a
+  href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cportal%2Cbash%2Ckeda#v2"
+  >Microsoft docs - Work with Azure Functions Core Tools</a
+>
+<br />
+<a
+  href="https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-csharp?tabs=in-process%2Cazure-cli"
+  >Microsoft docs - Create a C# function in Azure form the command line</a
+>
+<br />
+<a
+  href="https://docs.microsoft.com/en-us/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous"
+  >Microsoft docs - Create a function app in Azure that is deployed from
+  github</a
+>
+<br />
+<a
+  href="https://docs.microsoft.com/en-us/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous"
+  >Github - Github Actions for deploying to Azure Functions</a
+>
