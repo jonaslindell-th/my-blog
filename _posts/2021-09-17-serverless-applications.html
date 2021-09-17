@@ -278,6 +278,40 @@ background: "/img/posts/microsoft-azure.jpg"
 />
 
 <p>
-  Om jag nu gör en ändring i mitt repository, som till exempel att lägga till
-  ett utropstecken
+  Om jag nu gör en ändring i mitt repository, som till exempel byter ut punkt
+  mot ett utropstecken.
 </p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/uttropstecken.png?raw=true"
+  alt="Bild på kodförändring"
+/>
+
+<p>
+  Pushar ändringarna till github och manuellt kör min workflow, eftersom jag nu
+  valt att detta ska triggas via workflow_dispatch för att deploya till azure.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/runworkflow.png?raw=true"
+  alt="Bild på Run workflow"
+/>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/workflowresult.png?raw=true"
+  alt="Bild på resultatet av min workflow"
+/>
+
+<p>
+  Så kommer nu ändringarna även finnas distrubuerat till azure, som jag ska
+  demonstrera genom att göra ett anrop via postman.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/deploydemo.png?raw=true"
+  alt="Demo av deployment till azure"
+/>
