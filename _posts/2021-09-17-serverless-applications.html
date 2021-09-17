@@ -66,8 +66,9 @@ background: "/img/posts/microsoft-azure.jpg"
 />
 
 <p>
-  Från templaten får jag en http funktion som tar ett namn i form av en string
-  query och som sen returnerar en sträng.<br />
+  Från templaten får jag en http funktion som tar ett namn som parameter och som
+  i sin tur returnerar en sträng baserat på vad användaren matat in för värde på
+  parametern.<br />
   Här lägger jag nu in min kod för min simpla additionskalkylator.
 </p>
 
@@ -76,3 +77,45 @@ background: "/img/posts/microsoft-azure.jpg"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/simpleaddition.png?raw=true"
   alt="Kod för min kalkylator"
 />
+
+<p>
+  Koden i sig är inte särskilt märkvärdig, jag hämtar in två strängar ur
+  anropet, sen börjar jag med att kontrollera om strängarna innehåller något,
+  gör dom inte de så går vi ur funktionen tidigt med meddelandet att användaren
+  inte matat in något värde att beräkna. Annars så försöker vi konvertera
+  strängarna till doubles och beräknar summan i returneringen, misslyckas
+  konverteringen så fångar jag upp felet med ett meddelande om hur användaren
+  kan rätta till sitt misstag.
+</p>
+
+<p>
+  Nu kan jag köra och testa min applikation genom postman. Demonstrerar exempel
+  responses nedan
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/validparams.png?raw=true"
+  alt="Kod för min kalkylator"
+/>
+<span style="margin-left: -25%" class="caption text-muted"
+  >Beräkning med korrekta parametrar 20 och 13,5.</span
+>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/wrongparams.png?raw=true"
+  alt="Kod för min kalkylator"
+/>
+<span style="margin-left: -25%" class="caption text-muted"
+  >Här skickar jag in en korrekt och en felaktig parameter.</span
+>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/withoutparams.png?raw=true"
+  alt="Kod för min kalkylator"
+/>
+<span style="margin-left: -25%" class="caption text-muted"
+  >Utan parametrar.</span
+>
