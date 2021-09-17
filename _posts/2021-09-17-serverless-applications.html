@@ -83,9 +83,9 @@ background: "/img/posts/microsoft-azure.jpg"
   anropet, sen börjar jag med att kontrollera om strängarna innehåller något,
   gör dom inte de så går vi ur funktionen tidigt med meddelandet att användaren
   inte matat in något värde att beräkna. Annars så försöker vi konvertera
-  strängarna till doubles och beräknar summan i returneringen, misslyckas
-  konverteringen så fångar jag upp felet med ett meddelande om hur användaren
-  kan rätta till sitt misstag.
+  strängarna till doubles och beräknar summan i strängen som ska returneras,
+  misslyckas konverteringen så fångar jag upp felet med ett meddelande om hur
+  användaren kan rätta till sitt misstag.
 </p>
 
 <p>
@@ -242,3 +242,42 @@ background: "/img/posts/microsoft-azure.jpg"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/workflowwithrestore.png?raw=true"
   alt="Inledning på min workflow"
 />
+
+<p>
+  I nästa steg bygger jag funktionsapplikationen med en release konfiguration
+  till en output mapp. Därefter kör jag Azure/functions-action för att deploya
+  min applikation till azure. Här specificerar jag att jag vill använda ett
+  package från min output mapp som jag skapat upp under min build, samt
+  specificerar applikationens namn.
+</p>
+
+<p>
+  Jag behöver också få tillgång till min publish profile som jag kan få tillgång
+  till från Azure portal, genom att gå in på min översikt för min funktion och
+  ladda hem min publiceringsprofil som en textfil.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/publishprofile.png?raw=true"
+  alt="Bild på hur man hittar sin publish profile"
+/>
+
+<p>
+  Den här texten är något jag inte vill att obehöriga ska komma över, så jag
+  väljer att lägga in den som en repository secret och referera till den
+  istället.
+</p>
+
+<p>Slutresultatet av min workflow ser nu ut så här.</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/slutresultat.png?raw=true"
+  alt="Slutresultatet för min workflow fil"
+/>
+
+<p>
+  Om jag nu gör en ändring i mitt repository, som till exempel att lägga till
+  ett utropstecken
+</p>
