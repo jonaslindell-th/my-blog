@@ -41,7 +41,7 @@ background: "/img/posts/microsoft-azure.jpg"
   till minskade kostnader.
 </p>
 
-<h3>Min FaaS Kalkylator</h3>
+<h3>Http Kalkylator</h3>
 
 <p>
   Min kalkylator ska bestå av en Azure HttpTrigger Funktion som tar två tal som
@@ -92,7 +92,8 @@ background: "/img/posts/microsoft-azure.jpg"
   Nu kan jag köra och testa min applikation genom postman. Demonstrerar exempel
   responses nedan
 </p>
-
+<hr />
+<br />
 <img
   class="img-fluid"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/validparams.png?raw=true"
@@ -101,7 +102,8 @@ background: "/img/posts/microsoft-azure.jpg"
 <span style="margin-left: -25%" class="caption text-muted"
   >Beräkning med korrekta parametrar 20 och 13,5.</span
 >
-
+<hr />
+<br />
 <img
   class="img-fluid"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/wrongparams.png?raw=true"
@@ -110,7 +112,8 @@ background: "/img/posts/microsoft-azure.jpg"
 <span style="margin-left: -25%" class="caption text-muted"
   >Här skickar jag in en korrekt och en felaktig parameter.</span
 >
-
+<hr />
+<br />
 <img
   class="img-fluid"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/withoutparams.png?raw=true"
@@ -119,3 +122,58 @@ background: "/img/posts/microsoft-azure.jpg"
 <span style="margin-left: -25%" class="caption text-muted"
   >Utan parametrar.</span
 >
+
+<h3>FaaS Kalkylator</h3>
+
+<p>
+  I det här steget ska jag deploya min http kalkylator till azure functions med
+  hjälp av Azure CLI.
+</p>
+
+<p>
+  Jag börjar med att generera en personal access token på github, sen
+  authentiserar jag mig mot azure med: az login.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/azlogin.png?raw=true"
+  alt="azlogin cmd"
+/>
+
+<p>Därefter uppdaterar jag min git token med följande exempel.</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/exempeltoken.png?raw=true"
+  alt="Uppdatering av token"
+/>
+
+<p>Skapar upp en ny resursgrupp på azure.</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/exempelresursgrupp.png?raw=true"
+  alt="Bild på att skapa exempel resursgrupp"
+/>
+
+<p>
+  Sen skapar jag upp ett nytt storage account på azure med följande exempel.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/exempelstorageaccount.png?raw=true"
+  alt="Cmd för att skapa nytt azure storage account"
+/>
+
+<p>
+  Slutligen så skapar jag min funktions applikation med källfiler från mitt
+  specificerade github repository.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/serverless/exempelfunktion.png?raw=true"
+  alt="Cmd för att skapa nytt azure storage account"
+/>
