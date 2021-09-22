@@ -98,11 +98,15 @@ background: "/img/posts/06.jpg"
 <p>
   I metoden så använder jag try/catch för att försöka lägga till ett nytt
   dokument till databasen, jag börjar med att läsa in min requestbody och
-  deserialisera till ett ToDoModel objekt. Sen skapar jag upp en ny instans av
-  min ToDoModel och tilldelar värden för titel, beskrivning och en tid för när
-  den skapades. Försöker sedan lägga till det till databasen och slutligen
-  returnerar objektet som lagrats, misslyckas det så returnerar jag istället ett
-  felmeddelande i catch blocket.
+  deserialisera till ett
+  <a
+    href="https://github.com/jonaslindell-th/RestAPI-CosmosDB/blob/main/src/backend/ToDoModel.cs"
+    >ToDoModel</a
+  >
+  objekt. Sen skapar jag upp en ny instans av min ToDoModel och tilldelar värden
+  för titel, beskrivning och en tid för när den skapades. Försöker sedan lägga
+  till det till databasen och slutligen returnerar objektet som lagrats,
+  misslyckas det så returnerar jag istället ett felmeddelande i catch blocket.
 </p>
 
 <p>
@@ -165,7 +169,8 @@ background: "/img/posts/06.jpg"
 <p>
   Första gången jag deployade mina funktioner så gjorde jag det genom VS Code's
   Azure Functions extension, eftersom jag behöver tillgång till min funktions
-  namn och publish profile i min pipeline.
+  namn och publish profile i min pipeline för att tala om vart detta ska
+  deployas till.
 </p>
 
 <img
@@ -201,7 +206,7 @@ background: "/img/posts/06.jpg"
 />
 
 <p>
-  Min cd pipeline är densamma som i tidigare kalkyator funktion och finns
+  Min cd pipeline är densamma som i tidigare kalkylator funktion och finns
   beskriven i ett tidigare inlägg
   <a
     href="https://jonaslindell-th.github.io/my-blog/jekyll/update/2021/09/17/serverless-applications.html"
@@ -228,3 +233,74 @@ background: "/img/posts/06.jpg"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Azuredb/dbexplorer.png?raw=true"
   alt="Data explorer i azureportal"
 />
+
+<h3>Uppdatering av databas</h3>
+
+<p>
+  Eftersom jag använder mig av Cosmos DB som är en schemaless nosql databas så
+  kommer jag inte råka ut för några schema ändringar. Vill jag lägga/tabort till
+  en property så är det bara att göra det.
+</p>
+
+<p>
+  Vill jag däremot uppdatera mina properties i dokumenten så måste jag gör det i
+  minnet av min applikation. Så för att uppdatera måste jag först hämta in hela
+  dokumentet från Cosmos Db, uppdatera properties i min applikation och kalla på
+  Replace metoden från CosmosDb's SDK.
+</p>
+
+<h3>Driftkostnader för min Databas</h3>
+
+<p>
+  Med en mindre användarbas så estimerar jag med en peak på 400 RU/s per timme
+  och en transactional storage på 25gb, resulterar i en kostnad på 119.45$ i
+  månaden.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Azuredb/low-user-count.png?raw=true"
+  alt="Data explorer i azureportal"
+/>
+
+<hr />
+
+<p>
+  Med en större användarbas så estimerar jag med en peak på 25000 RU/s per timme
+  och en transactional storage på 250gb, resulterar i en kostnad på 7,137.50$ i
+  månaden.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Azuredb/high-user-count.png?raw=true"
+  alt="Data explorer i azureportal"
+/>
+
+<h3>Referenser</h3>
+
+<hr />
+
+<a href="https://azure.microsoft.com/en-us/pricing/calculator/"
+  >Azure - Pricing calculator</a
+>
+<br />
+<a
+  href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-input?tabs=csharp#http-trigger-get-multiple-docs-using-documentclient-c"
+  >Microsoft docs - Functions bindings Cosmosdb</a
+>
+<br />
+<a
+  href="https://towardsdatascience.com/working-with-azure-cosmos-db-in-your-azure-functions-cc4f0f98a44d"
+  >Towards data science - Working with azure cosmos db in your azure
+  functions</a
+>
+<br />
+<a href="https://auth0.com/blog/making-crud-api-with-azure-functions/"
+  >Auth0 - Making crud api with azure functions</a
+>
+<br />
+<a
+  href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?tabs=in-process&pivots=programming-language-csharp"
+  >Microsoft docs - Functions ad output binding cosmos db</a
+>
