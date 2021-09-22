@@ -101,5 +101,8 @@ background: "/img/posts/06.jpg"
   jag ska göra querys mot databasen med IDocumentQuery. Jag anger vilken typ av
   objekt jag ska använda mig av i min query, i mitt fall ToDo modellen.
   EnableCrossPartitionQuery satt till sant låter mig skicka mer än en request
-  för att exekvera min query i Azure DB tjänsten.
+  för att exekvera min query i Azure DB tjänsten, mer än en request är nödvändig
+  om förfrågan inte omfattar en enskild partitionsnyckel.
 </p>
+
+<h3>Min Cosmos Databas</h3>
