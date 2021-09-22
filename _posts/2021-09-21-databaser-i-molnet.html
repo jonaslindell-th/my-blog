@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Serverlösa applikationer"
+title: "Databaser i molnet"
 date: 2021-09-21 21:11:10 +0200
 categories: jekyll update
-background: "/img/posts/microsoft-azure.jpg"
+background: "/img/posts/06.jpg"
 ---
 
-<h2 class="section-heading">Databaser i molnet</h2>
+<h2 class="section-heading">Cosmos Db och Azure functions HTTP API</h2>
 
 <hr />
 <br />
@@ -15,14 +15,91 @@ background: "/img/posts/microsoft-azure.jpg"
 
 <p>
   Min applikation hanterar "att göra"/ToDo objekt mot en Cosmos Databas och
-  applikationen består av två http request funktioner, en för att hämta dokument
-  från databasen baserat på en sökterm och en för att skapa nya dokument.
+  applikationen består hittils av två http request funktioner, en för att hämta
+  dokument från databasen baserat på en sökterm och en för att skapa nya
+  dokument och en ToDoModel men jag planerar att utöka mina endpoints i kommande
+  uppgifter.
 </p>
-
-<p>Koden för min http post funktion ser ut så här.</p>
+<!-- Lägg till deployment workflow -->
+<p>
+  Koden för min http post funktion ser ut så här. Det kan behöva zoomas in för
+  att kunna tyda koden eller använd
+  <a
+    href="https://github.com/jonaslindell-th/RestAPI-CosmosDB/blob/main/src/backend/RestAPI.cs"
+    >länken</a
+  >
+  för att se den i mitt github repo.
+</p>
 
 <img
   class="img-fluid"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Azuredb/http-post.png?raw=true"
   alt="Bild på min post funktion"
 />
+
+<p>
+  Namngivningen för min funktion "RestAPI" är inte särskilt beskrivande och
+  kommer att ändras framöver, tillsvidare använder jag mig av en Route som
+  bestämmer att min endpoint kan nås via Add-New-ToDo. Vad som är nytt här
+  jämfört med min http kalkylator är att jag nu använder mig av en databas som
+  jag specificerar som en parameter till min run metod. Här specificerar jag
+  även databasens namn och kollektion samt refererar till min db connection
+  string som ligger i min local.settings json fil. Parametern todo är min
+  IAsyncCollector och som agerar som min databasinstans, som representerar
+  samlingen json dokument som i den här funktionen ska skrivas till min Azure
+  Cosmos DB container när funktionen är klar, med metoden AddAsync.
+</p>
+
+<p>
+  I metoden så använder jag try/catch för att försöka lägga till ett nytt
+  dokument till databasen, jag börjar med att läsa in min requestbody och
+  deserialisera till ett ToDoModel objekt. Sen skapar jag upp en ny instans av
+  min ToDoModel och tilldelar värden för titel, beskrivning och en tid för när
+  den skapades. Försöker sedan lägga till det till databasen och slutligen
+  returnerar objektet som lagrats, misslyckas det så returnerar jag istället ett
+  felmeddelande i catch blocket.
+</p>
+
+<p>
+  Jag har valt att skapa upp en ny funktion för att hämta dokument från
+  databasen för att upprätthålla SRP, men ska man hård dra detta så stämmer det
+  inte riktigt i mitt fall eftersom jag kan både ange en sökterm för att hämta
+  dokument baserat på titel eller lämna den tom för att hämta alla dokument.
+</p>
+
+<p>
+  Koden för min http get funktion ser ut så
+  <a
+    href="https://github.com/jonaslindell-th/RestAPI-CosmosDB/blob/main/src/backend/ToDoGet.cs"
+    >här.</a
+  >.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Azuredb/httpget.png?raw=true"
+  alt="Bild på min get funktion"
+/>
+
+<p>
+  Vad som är nytt i parameterlistan här är att jag nu använder DocumentClient
+  client, som representerar min Cosmos DB och upprätthåller mina endpoints och
+  connection policy's som jag kommer att använda mig av för att hämta dokument.
+</p>
+
+<p>
+  Jag börjar med att hämta in en sökterm från anropet, därefter kontrollerar jag
+  om är tom. Är den tom så hämtas i mitt fall alla dokument från databasen in
+  och returnas till användaren. Är den inte tom så använder jag mig av lambda
+  för att söka efter dokument som innehåller söktermen i sin titel som sedan
+  returneras.
+</p>
+
+<p>
+  CreateDocumentCollectionUri använder jag för att skapa en länk mellan min
+  databas och min kollektion som jag behöver skicka in som en URI parameter när
+  jag ska göra querys mot databasen med IDocumentQuery. Jag anger vilken typ av
+  objekt jag ska använda mig av i min query, i mitt fall ToDo modellen.
+  EnableCrossPartitionQuery satt till sant låter mig skicka mer än en request
+  för att exekvera min query i Azure DB tjänsten.
+</p>
