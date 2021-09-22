@@ -11,6 +11,51 @@ background: "/img/posts/06.jpg"
 <hr />
 <br />
 
+<h3>Min Cosmos Databas</h3>
+
+<p>
+  För den här uppgiften använder jag mig av en serverless Azure Cosmos DB som
+  jag kan använda SQL syntax för att skicka förfrågningar mot som tillhör samma
+  resursgrupp som mina http funktionsappar. Databasen ska hantera mina att göra
+  dokument som består av en titel, beskrivning, boolean för om den är avklarad
+  och datum när den skapats upp, detta kommer förmodligen att uttökas i senare
+  uppgifter.
+</p>
+
+<p>
+  Databasen skapades upp genom VS Code med hjälp av ett
+  <a
+    href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb"
+    >Azure Databases</a
+  >
+  extension.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Azuredb/dbextension.png?raw=true"
+  alt="Bild på db extension i drift."
+/>
+
+<p>
+  Här skapade jag upp min DB server, kapacitetsmodell som serverless, angav
+  resursgrupp (samma som mina functions) och location north europe.
+</p>
+
+<p>Därefter Skapade jag upp min databas med Create Database</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Azuredb/createdb.png?raw=true"
+  alt="Bild på extension create db."
+/>
+
+<p>
+  Angav ett databasnamn och id för min kollektion för att skapa upp min
+  container och databas och kopiera min db connection string som jag kommer
+  använda mig av i mina funktioner.
+</p>
+
 <h3>Azure http request function som API</h3>
 
 <p>
@@ -105,4 +150,41 @@ background: "/img/posts/06.jpg"
   om förfrågan inte omfattar en enskild partitionsnyckel.
 </p>
 
-<h3>Min Cosmos Databas</h3>
+<h3>Testning genom Postman och Deployments genom CD pipeline</h3>
+
+<p>
+  Under utvecklingen har jag kontinuerligt testat mina funktioner lokalt genom
+  Postman och har jag kommit till ett stadie där jag vill deploya det till Azure
+  har jag kört min cd pipeline manuellt i Github Actions. Givetvis hade jag
+  kunnat ändra min trigger till att sköta detta automatiskt med push: branches:
+  main och utveckla i nya branches, men workflow dispatch är något jag tycker om
+  att använda mig av för att inte råka deploya av misstag och istället endast
+  när jag vill.
+</p>
+
+<p>
+  Första gången jag deployade mina funktioner så gjorde jag det genom VS Code's
+  Azure Functions extension, eftersom jag behöver tillgång till min funktions
+  namn och publish profile i min pipeline.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Azuredb/lokaltest.png?raw=true"
+  alt="Bild på postman post test"
+/>
+<span style="margin-left: -25%" class="caption text-muted"
+  >Testning lokalt genom postman mot min Cosmos DB</span
+>
+
+<p>
+  Så från början startade jag med ett basic http template deployat i Azure
+  functions och har deployat genom min pipeline stegvis för att få post och get
+  funktionalitet för mina funktioner deployat till molnet.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Azuredb/deployments.png?raw=true"
+  alt="Deployments"
+/>
