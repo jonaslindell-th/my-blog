@@ -136,7 +136,7 @@ background: "/img/posts/06.jpg"
 <span style="margin-left: -25%" class="caption text-muted"
   >Min sida för att skapa nya todo's
 </span>
-
+<hr />
 <h3>Skapa upp min docker image</h3>
 
 <p>
@@ -155,5 +155,63 @@ background: "/img/posts/06.jpg"
 <img
   class="img-fluid"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/webapp/dockerfil.png?raw=true"
-  alt="Sida för att skapa ny todo."
+  alt="Bild på min dockerfil"
 />
+
+<p>Jag bygger min docker fil med taggen todo-webapp:latest.</p>
+
+<h3>Azure Container Registry</h3>
+
+<p>
+  Nu har jag tillgång till min image: todo-webapp, i det här steget kommer jag
+  skapa upp mitt Azure Container Registry genom Azure Portalen. Väljer create
+  för att skapa ett nytt registry.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/webapp/acr.png?raw=true"
+  alt="Bild på att skapa ny constainer registry."
+/>
+
+<p>
+  Därefter väljer jag vilket resursgrupp denna ska tillhöra, namnger mitt
+  registry, väljer en location och väljer SKU modell, i mitt fall Basic.
+</p>
+
+<p>
+  Använder Docker extension i VS Code för att ansluta mot mitt nyskapade Azure
+  Container registry.
+</p>
+
+<p>
+  Under dropdown menyn för min prenumeration kan jag nu se mitt container
+  registry.
+</p>
+
+<p>
+  Letar upp min webapps image och väljer att pusha den till mitt registry i
+  Azure.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/webapp/pushimage.png?raw=true"
+  alt="Pusha till registry."
+/>
+
+<p>
+  Nu finns min image i mitt registry och jag kan nu deploya den till Azure App
+  Services.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/webapp/deploy.png?raw=true"
+  alt="Bild på depoy alternativet."
+/>
+
+<p>
+  I nästa steg namnger jag min webbapplikation, väljer resursgrupp och service
+  plan.
+</p>
