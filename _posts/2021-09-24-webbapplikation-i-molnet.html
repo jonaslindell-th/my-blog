@@ -89,3 +89,41 @@ background: "/img/posts/06.jpg"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/webapp/todoshtml.png?raw=true"
   alt="Bild på min html/c#"
 />
+
+<p>
+  Använder en tabell för att visa upp innehållet, och har satt en overflow
+  scrollbar om jag överskrider 500 pixlar för innehållet. Refererar till min
+  till min lista med todo's med Model.TodoModels och itererar igenom den, med
+  Html.DisplayFor kan jag skriva ut värden för varje property.
+</p>
+
+<p>Kör jag min applikation lokalt ser den nu ut så här.</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/webapp/todopreview.png?raw=true"
+  alt="Bild på min view todo's sida."
+/>
+
+<p>
+  För att posta nya todo's till databasen så skapar jag upp en ny sida på
+  liknande sätt. Använder ett väldigt simpelt formulär för att sköta detta.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/webapp/mytodo.png?raw=true"
+  alt="Bild på min view todo's sida."
+/>
+
+<p>
+  name="title" och "description" refererar till mina properties som ligger i min
+  PageModel, jag använder en OnPost metod för att skapa upp ett nytt ToDoModel
+  objekt som jag lägger till i min request body.
+</p>
+
+<p>
+  Just nu gör jag inget med svaret jag får tillbaka, men skulle jag dra det här
+  längre kan jag använda svarets status för att printa ut på sidan om det
+  lyckats att spara eller inte.
+</p>
