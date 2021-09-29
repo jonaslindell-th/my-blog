@@ -1,0 +1,66 @@
+---
+layout: post
+title: "Nätverk i molnet"
+date: 2021-09-28 14:01:10 +0200
+categories: jekyll update
+background: "/img/posts/cloudcomp.jpg"
+---
+
+<h2 class="section-heading">Mail till CTO</h2>
+
+<hr />
+<br />
+
+<h3>Inledning</h3>
+
+<p>
+  I det här inlägget ska jag genom ett mail försöka övertala min Chief
+  Technology Officer att gå över till Azure Private Link och Azure Service Bus
+  för vår interna applikation. Min CTO vill inte använda sig av Azure Service
+  Bus med argumentet att vi jobbar med klassificerad data som inte får skickas
+  öppet.
+</p>
+
+<hr />
+
+<h5>Angående Azure Service Bus</h5>
+
+<p>Hej John Doe!</p>
+
+<p>
+  Förstår din oro över att obehöriga ska få tillgång till känslig data vid
+  användning av Azure Service Bus.
+</p>
+
+<p>
+  Anledningen till att jag pushar på att gå över till ASB är att vi med hjälp av
+  en message broker kan fördela belastningen inom vårat system. Detta gör att
+  ett system kan bearbeta flera meddelanden samtidigt för att optimera
+  genomströmning, på så sätt ökar vi skalbarhet, responsivitet och
+  tillgänglighet.
+</p>
+
+<p>
+  Eftersom vi förväntas hantera ett stort antal förfrågningar så kan vi med
+  hjälp av balansering av vår belastning läsa in förfrågningar från flera håll
+  samtidigt och koordinerat fördela dessa mellan våra bearbetningsprocesser, i
+  vårt fall vår affärslogik, genom vår meddelandekö i ASB. Med denna
+  koordination kan vi lätt skala upp och samtidigt undvika att flera processer
+  bearbetar samma meddelande.
+</p>
+
+<p>En illustration av hur det här kan se ut.</p>
+
+<img
+  class="img-fluid"
+  src="/img/posts/Nätverk/request-que.jpg"
+  alt="Bild på mitt Load Balancing diagram"
+/>
+
+<p>
+  När vi hanterar en förfrågan som kräver längre tid att bearbeta så förhindras
+  inte andra meddelanden från att hanteras, utan de kan hanteras samtidigt av
+  andra instanser av vår affärslogik och vi undviker att det blir vår flaskhals.
+</p>
+
+<p>Mvh, Jonas</p>
