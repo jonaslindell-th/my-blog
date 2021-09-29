@@ -63,4 +63,27 @@ background: "/img/posts/cloudcomp.jpg"
   andra instanser av vår affärslogik och vi undviker att det blir vår flaskhals.
 </p>
 
+<p>
+  Med Azure Private Link kan vi skapa upp en privat endpoint inom vårt virtuella
+  nätverk. Denna erhåller en intern ip adress för vår PaaS tjänst, all trafik
+  kommer då gå från vårt virtuella nätverk till PaaS resursen genom Microsofts
+  kärnnätverk och detta går alltså <b>inte</b> ut publikt över internet.
+</p>
+
+<p>
+  Om vi nu använder oss av Azure Virtual Network som vår privata molnlösning som
+  våra tjänster kommunicerar igenom, så kan vi när det är konfigurerat och redo
+  använda Azure Private Link för att skapa en endpoint mot vår PaaS tjänst så
+  att kommunikation kan ske utan en publik ip adress och all trafik är begränsad
+  till att gå här igenom på ett säkert sätt.
+</p>
+
+<p>Ett exempel på hur de här skulle kunna se ut.</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Natverk/illustration.jpg?raw=true"
+  alt="Bild på private link diagram"
+/>
+
 <p>Mvh, Jonas</p>
