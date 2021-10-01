@@ -14,12 +14,16 @@ background: "/img/posts/cloudcomp.jpg"
   en webbapplikation som hämtar och visar upp bilderna.
 </p>
 
+<p>Jag börjar med att skapa upp ett nytt storage account i Azure portalen.</p>
+
 <h3>Konsolapplikation</h3>
 
 <p>
-  Jag börjar med att skapa upp en ny klass och metod för att ladda upp mina
-  bilder, som jag anropar från main metoden.
+  För att komma igång med min konsolapp så skapar jag upp en ny klass och metod
+  för att ladda upp mina bilder, som jag anropar från main metoden.
 </p>
+
+<p>Koden för min BlobManager ser ut så här.</p>
 
 <img
   class="img-fluid"
@@ -30,11 +34,38 @@ background: "/img/posts/cloudcomp.jpg"
 <p>
   Här anger jag sökvägen till bilden jag vill ladda upp. Och tilldelar variabeln
   connectionString min connection string jag hämtat från mitt storage account
-  och som jag satt som environment variable för att dölja den under utveckling.
+  som jag satt som environment variable för att dölja den under utveckling.
 </p>
 
 <img
   class="img-fluid"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Filer-i-molnet/connectionstring.png?raw=true"
   alt="Bild på hur man får fram connection string i azure storage account"
+/>
+
+<p>
+  Därefter skapar jag upp en ny instans av BlobClient och anger connectionstring
+  till mitt storage, namnet på min container som bilder ska lagras i följt av
+  namnet på min blob som parametrar. Jag har valt att använda mig av guid för
+  namngivning för att undvika att få konflikter vid uppladdning.
+</p>
+
+<p>
+  Laddar upp bilden med blobClient.Upload() med min filsökväg som parameter, mot
+  min blobstorage. Hämtar in sökvägen till den uppladdade filen med absolut uri
+  som jag sen skriver ut i consolen.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Filer-i-molnet/dotnet-run.png?raw=true"
+  alt="Bild på dotnet run följt av imgurl"
+/>
+
+<p>Min container innehåller nu mina bilder.</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Filer-i-molnet/img-container.png?raw=true"
+  alt="Bild på innehållet i min images container."
 />
