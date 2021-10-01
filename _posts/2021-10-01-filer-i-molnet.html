@@ -160,4 +160,46 @@ background: "/img/posts/cloudcomp.jpg"
 
 <h3>Vad gör Microsoft för att säkra min blob data?</h3>
 
-<p></p>
+<p>
+  Azure krypterar data i vila, all data som skrivs till Azure Blob storage
+  krypteras när de skrivs till disk och avkrypteras när de begärs åtkomst till
+  under förutsättningarna att man använder sig av rätt Azure nyckel.
+</p>
+
+<p>
+  Data skyddas från att läcka ut vid överföringar via ett öppet internet till
+  mitt storage. Detta är möjligt genom att alla sessioner med Azure services och
+  datacenter säkras med hjälp av transportlagret de använder sig av, Perfect
+  forward secrecy.
+</p>
+
+<h3>Referenser</h3>
+
+<hr />
+
+<a href="https://azure.microsoft.com/en-us/pricing/calculator/"
+  >Azure - Pricing calculator</a
+>
+<br />
+
+<a
+  href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-dotnet"
+  >Microsoft docs - Storage quick start</a
+>
+<br />
+
+<a href="https://cloudacademy.com/blog/how-does-azure-encrypt-data/"
+  >Cloudacademy - How does azure encrypt data</a
+>
+<br />
+
+<a
+  href="https://medium.com/@rammonzito/azure-blob-storage-using-a-net-core-console-application-106a0c2e6de5"
+  >Medium - azure blob storage using a dotnet console app</a
+>
+<br />
+
+<a href="https://www.youtube.com/watch?v=yQwjNx_gnus"
+  >Billy tech - Azure blob storage tutorial</a
+>
+<br />
