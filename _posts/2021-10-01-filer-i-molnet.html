@@ -134,6 +134,30 @@ background: "/img/posts/cloudcomp.jpg"
   alt="Diagram över mitt dataflöde."
 />
 
-<h3>Kostnader för att driva en shutterstock applikation.</h3>
+<p></p>
+
+<h3>Kostnader för att driva en storskalig applikation likt pixabay i Azure.</h3>
+
+<p>
+  Applikationen estimeras till att ha 1000 användare som sammanlagt lägger upp
+  100mb bilder om dagen med min consolapp, och alla bilder laddas ned tre gånger
+  om dagen med min webapp.
+</p>
+
+<p>
+  Mitt storage account i sig kommer att kosta runt 391$ i månaden, det
+  innehåller 2TB kapacitet, Premium performance och befinner sig i nordeuropa.
+  Redundancy satt till LRS för replicering av data tre gånger om dagen.
+</p>
+
+<p>
+  Min app service för webapp och konsolapplikation kommer hamna på runt 161$ i
+  månaden, region satt till nordeuropa och operativ linux, premium v2 tier 2
+  kärnor 7gb ram 250gb storage.
+</p>
+
+<p>Totalen hamnar på 552$ i månaden för att driva detta.</p>
+
+<h3>Vad gör Microsoft för att säkra min blob data?</h3>
 
 <p></p>
