@@ -69,3 +69,37 @@ background: "/img/posts/cloudcomp.jpg"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Filer-i-molnet/img-container.png?raw=true"
   alt="Bild på innehållet i min images container."
 />
+
+<h3>Min Webbapp</h3>
+
+<p>
+  Nu när jag har mina bilder i Azure blob storage, vill jag visa upp dom i min
+  webbapplikation. Använder mig av en Razor Page applikation, skapar en ny sida
+  som jag döper till Images.
+</p>
+
+<p>
+  I min ImagesModel så skapar jag en konstruktor för att få åtkomst till min
+  connection string i appsettings.json med hjälp av IConfiguration injektionen.
+  Skapar även upp en lista som jag ska kommer behöva lägga till min Uris jag
+  hämtar ut från min container.
+</p>
+
+<p>
+  Jag gör min OnGet metod till async som returnerar en task, för att se till att
+  jag har tillgång till mina bilder innan jag returnerar sidan till användaren.
+  Resten av min kod beskriver jag med kommentarer.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/Filer-i-molnet/pagemodel.png?raw=true"
+  alt="Min kod för min page model."
+/>
+<span style="margin-left: -25%" class="caption text-muted"
+  >Är koden svår att tyda? Klicka på
+  <a
+    href="https://jonaslindell-th.github.io/my-blog/jekyll/update/2021/09/17/serverless-applications.html"
+    >Länken</a
+  ></span
+>
