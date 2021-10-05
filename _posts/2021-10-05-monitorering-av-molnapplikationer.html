@@ -1,0 +1,44 @@
+---
+layout: post
+title: "Monitorering av moln applikationer"
+date: 2021-10-01 14:01:10 +0200
+categories: jekyll update
+background: "/img/posts/cloudcomp.jpg"
+---
+
+<h3>Inledning</h3>
+
+<p>
+  I det här blogginlägget kommer lägga till logging i min webbapplikation som hanterar mina To Do's och konfigurera så att mina loggar hamnar i Azure's application insights. I ett tidigare inlägg går jag igenom vad webbapplikationen gör, vill du veta mer finner länken till inlägget <a href="https://jonaslindell-th.github.io/my-blog/jekyll/update/2021/09/24/webbapplikation-i-molnet.html">här</a>.
+</p>
+
+<h3>Implementering av Application Insights</h3>
+
+<p>
+    För att komma igång med logging mot AI så lägger jag till NuGet paketet <a href="https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore">Microsoft.ApplicationInsights.AspNetCore</a> i mitt projekt.
+    I min startup ConfigureServices lägger jag till AddApplicationInsightsTelemetry().
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/monitorering/services-ai.png?raw=true"
+  alt="Bild på configure services."
+/>
+
+<p>Här hade jag kunnat skicka med min instrumentationsnyckel som parameter, men lämnar jag den tom så används istället min appsettings fil som referens för att nå min nyckel.</p>
+
+<p>För att få tillgång till min instrumentationsnyckel måste jag först skapa upp en ny application insights, i mitt fall gör jag det genom azure portalen.</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/monitorering/new-insight.png?raw=true"
+  alt="Azure portal create new insight."
+/>
+
+<p>Skapar ny och anger resursgrupp, namn för min insight, region och workspace. Jag kan nu hitta min instrumentation key inne på overview för min AI resurs. Lägger till ApplicationInsights och InstrumentationKey i min appsettings samt min key under det rödmarkerade fältet. Anger LogLevel Default som Debug för att även kunna logga Information med severityLevel 1 och högre i min applikation. Per default så loggas endast errors, varningar och kritiska fel.</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/monitorering/appsettings.png?raw=true"
+  alt="Min appsettings.json."
+/>
