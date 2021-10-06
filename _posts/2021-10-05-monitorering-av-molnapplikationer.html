@@ -35,10 +35,34 @@ background: "/img/posts/cloudcomp.jpg"
   alt="Azure portal create new insight."
 />
 
-<p>Skapar ny och anger resursgrupp, namn för min insight, region och workspace. Jag kan nu hitta min instrumentation key inne på overview för min AI resurs. Lägger till ApplicationInsights och InstrumentationKey i min appsettings samt min key under det rödmarkerade fältet. Anger LogLevel Default som Debug för att även kunna logga Information med severityLevel 1 och högre i min applikation. Per default så loggas endast errors, varningar och kritiska fel.</p>
+<p>Skapar ny och anger resursgrupp, namn för min insight, region och workspace. Jag kan nu hitta min instrumentation key inne på overview för min AI resurs. Lägger till ApplicationInsights och InstrumentationKey i min appsettings samt min key under det rödmarkerade fältet. Anger LogLevel Default som Debug för att även kunna logga Information från severityLevel 1 och högre i min applikation. Per default så loggas endast errors, varningar och kritiska fel.</p>
 
 <img
   class="img-fluid"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/monitorering/appsettings.png?raw=true"
   alt="Min appsettings.json."
 />
+
+<p>I nästa steg så skapar jag upp konstruktorer för mina sidor som läser in och skapar nya todos och injecerar min ILogger tjänst. Anger inom try catch vad jag vill logga, i mitt fall vill jag ha reda på när något lyckas sparas eller hämtas mot databasen samt logga vilka errors som uppstår i samband med detta.</p>
+
+<p>Koden för hur jag implementerat logging för min Http Post är nästan identisk med Get och ser ut så här.</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/monitorering/loggerkod.png?raw=true"
+  alt="Kod för implementering av logging."
+/>
+
+<p>Jag använder mig av .LogInformation för att logga allt som lyckas sparas eller hämtas från databasen, och .LogError vid exceptions.</p>
+
+<h3>Logs</h3>
+
+<p>Efter att ha kört applikationen och lagt till nya todo's och hämtat från min databas samt manuellt framkallat och loggat error, critical och warning så kan jag genom appinsights gå igenom mina logs i Azure Portalen genom Kusto queries. I mitt fall har jag valt att skriva en kusto query för att ta reda på vilka requests som tar längst tid på sig att utföras.</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/monitorering/operation-duration.png?raw=true"
+  alt="Kusto query för att mäta tiden de tar att utföra requests."
+/>
+
+<p>Här delar jag upp genomsnittliga tiden de tar att uföra varje request baserat på operation och sorterar efter längst tid först, väljer att se det som chart och det blir uppenbart att min Get /Todos behöver ses över angående hur jag ska få ner request tiden.</p>
