@@ -90,3 +90,34 @@ background: "/img/posts/cloudcomp.jpg"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/monitorering/diagram.png?raw=true"
   alt="Bild på mitt diagram."
 />
+
+<p></p>
+
+<h3>Hur logging kan förhindra säkerhetsproblem</h3>
+
+<p>
+  Man bör hålla koll på vilka IP adresser som skickar requests, det kan verka harmlöst att en ip adress kallar på alla mina endpoints på samma gång, men de vara en del av en <a href="https://www.sciencedirect.com/topics/computer-science/scanning-attack">Scanner Attack</a> där detta är ett tidigt steg som samlar nätverks information som förberedelser inför en större attack. Att identifiera skannings attacker och deras källor kan förhindra obehörig åtkomst i ett senare skede.
+</p>
+
+<p>
+  I min applikations logik och metoder så bör min loggning kunna bidra med information när specifikt känsliga aktiviteter försöker nås av obehöriga användare eller metoder. Detta är viktigt för att upptäcka vad som är på väg att ske och förhindras i ett tidigt skede med möjligtvis warn eller critical logs mot Azure Insights som triggar notiser.
+</p>
+
+<h3>Referenser</h3>
+
+<hr />
+
+<a href="https://www.youtube.com/watch?v=m7E5itCkCuA"
+  >Gavilanch3 - Saving Logs in Application Insights</a
+>
+<br />
+
+<a href="https://zimmergren.net/discover-issues-azure-functions-app-services-using-application-insights/"
+  >Zimmergren - Discover issues azure funcitons app services using application insights</a
+>
+<br />
+
+<a href="https://logz.io/blog/logs-to-monitor-for-security-analytics/"
+  >Logz - Logs to monitor for security analytics</a
+>
+<br />
