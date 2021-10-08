@@ -74,3 +74,27 @@ background: "/img/posts/cloudcomp.jpg"
     De finns begränsningar för hur mycket man kan uppgradera en maskin, man når så småning om en tröskel för hur mycket ram minne man kan trycka dit, hur mycket minne man kan använda sig av osv.
 </p>
 
+<h3>Kostnader att skala horisontellt vs vertikalt i Azure</h3>
+
+<br>
+
+<h3>App Service skalas vertikalt vs horisontellt</h3>
+
+<p>Region North Europe och operativsystemet linux gäller för samtliga prismodeller.</p>
+
+<p>Min ursprungliga App Service som är en två kärnig P1V3 instans med 8gb ram och 250gb lagring ska skalas upp och kostar för nuvarande 122.64$ i månaden.</p>
+
+<p>Med vertikal skalning till tröskeln för vad som går att uttöka under samma tier, så hamnar jag med 8 kärning processor 32gb ram och 250gb lagring till en månadskostnad av 490.56$ i månaden.</p>
+
+<p>Om jag istället skalar min ursprungliga App Service med 2kärning cpu 8gb ram och 250gb minne horisontellt över fyra instancer för att uppnå samma antal cpu kärnor (8) och ram-minne (32) kör jag fyra instanser av min App Service till samma månadskostnad (490.56$) men tjänar 750gb minne för samma pris till en total på 1000gb fördelat över fyra instanser.</p>
+
+<p>Slutsaten är alltså att man tjänar på att skala horisontellt med Azure App Service men att komplexiteten för applikationen ökar i samband med att köra flera instanser som jag beskrivit i mina för och nackdelar ovan.</p>
+
+<h3>Referenser</h3>
+
+<hr />
+
+<a href="https://azure.microsoft.com/en-us/pricing/calculator/"
+  >Azure - Pricing Calculator</a
+>
+<br />
