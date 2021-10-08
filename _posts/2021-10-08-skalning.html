@@ -99,7 +99,7 @@ background: "/img/posts/cloudcomp.jpg"
 <h3>Så vilka Azure Service app plans går att skala?</h3>
 
 <p>
-    Nu ska vi se över skalningsmöjligheterna för de olika Azure App service planerna, nu har jag tagit fram en tabell för att se priser och skalningsmöjligheter horisontellt för en Linux baserad Azure app service i nordeuropa.
+    Nu ska vi se över skalningsmöjligheterna för de olika Azure App service planerna, nu har jag tagit fram en tabell för att se priser och skalningsmöjligheter <b>horisontellt</b> för en Linux baserad Azure app service i nordeuropa.
 </p>
 
 <img
@@ -108,7 +108,7 @@ background: "/img/posts/cloudcomp.jpg"
   alt="diagram över skalning för service plans"
 />
 
-<p>Det går att se att horisontella skalningsmöjligheter saknas för prova på planen, medans basic stödjer upp till tre instanser och därifrån ökar de bara, beroende på standard, premium och isolerad. Vill man däremot skala upp vertikalt så är de möjligt Produktion och Isolerade service plans men inte dev/test planen.</p>
+<p>Det går att se att horisontella skalningsmöjligheter saknas för prova på planen, medans basic stödjer upp till tre instanser och därifrån ökar de bara, beroende på standard, premium och isolerad. Vill man däremot skala upp <b>vertikalt</b> så är de endast möjligt för Produktion och Isolerade service plans men inte dev/test planen.</p>
 
 <img
   class="img-fluid"
@@ -116,11 +116,23 @@ background: "/img/posts/cloudcomp.jpg"
   alt="Bild på vertikala skalningsmöjligheter"
 />
 
+<p></p>
+
 <h3>Referenser</h3>
 
 <hr />
 
 <a href="https://azure.microsoft.com/en-us/pricing/calculator/"
   >Azure - Pricing Calculator</a
+>
+<br />
+
+<a href="https://azure.microsoft.com/sv-se/pricing/details/app-service/linux/"
+  >Azure - App service linux</a
+>
+<br />
+
+<a href="https://www.section.io/blog/scaling-horizontally-vs-vertically/"
+  >Section - Scaling horizontally vs vertically</a
 >
 <br />
