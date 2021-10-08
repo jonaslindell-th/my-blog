@@ -17,7 +17,7 @@ background: "/img/posts/cloudcomp.jpg"
 <img
   class="img-fluid"
   src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/skalning/skalning.png?raw=true"
-  alt="Bild på configure services."
+  alt="diagram över skalning"
 />
 
 <p></p>
@@ -95,6 +95,26 @@ background: "/img/posts/cloudcomp.jpg"
 <p>Om jag istället skalar ut den horisontellt så att jag har fyra instanser av vm maskiner med 2 kärniga CPU's 8gb ram och 50gb lagring så kostar även detta 312,49$ i månaden så uppnår jag samma motsvarighet i cpu, ram och lagring som i min vertikalt skalade VM maskin.</p>
 
 <p>Min slutsats är att de inte är någon priskillnad mellan vertikalt och horisontellt i Azure för dessa fall, men de finns givetvis även här en tröskel att nå vid att skala upp vertikalt där horisontell skalning är enda vägen att utöka prestanda.</p>
+
+<h3>Så vilka Azure Service app plans går att skala?</h3>
+
+<p>
+    Nu ska vi se över skalningsmöjligheterna för de olika Azure App service planerna, nu har jag tagit fram en tabell för att se priser och skalningsmöjligheter horisontellt för en Linux baserad Azure app service i nordeuropa.
+</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/skalning/scaling-support.png?raw=true"
+  alt="diagram över skalning för service plans"
+/>
+
+<p>Det går att se att horisontella skalningsmöjligheter saknas för prova på planen, medans basic stödjer upp till tre instanser och därifrån ökar de bara, beroende på standard, premium och isolerad. Vill man däremot skala upp vertikalt så är de möjligt Produktion och Isolerade service plans men inte dev/test planen.</p>
+
+<img
+  class="img-fluid"
+  src="https://github.com/jonaslindell-th/my-blog/blob/main/img/posts/skalning/vertikal-skalning.png?raw=true"
+  alt="Bild på vertikala skalningsmöjligheter"
+/>
 
 <h3>Referenser</h3>
 
