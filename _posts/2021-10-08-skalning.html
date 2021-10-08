@@ -15,3 +15,35 @@ background: "/img/posts/cloudcomp.jpg"
 <p>
     Horisontell skalning innebär att skalning sker genom att lägga till en eller flera instanser av den server som driver en applikation. Detta är användbart om en applikation inte längre har kapacitet att hantera den trafik som genereras, med lösningen att fördela arbetsbelastningen mellan flera instanser av en applikation.
 </p>
+
+<p>
+    Vertikal skalning innebär att lägga till ytterligare resurser till en befintlig maskin i form av uppgraderad CPU, mer minne, högre förvaringskapacitet och högre nätverkshastighet. Vertikal skalning kan även innefatta att byta server helt eller flytta arbetsbelastningen till en uppgraderad server.
+</p>
+
+<h3>För och nackdelar med horisontell skalning</h3>
+
+<p>
+    Skalning är lättare, sett från ett hårdvaruperspektik. För att horisontellt skala behövs det endast läggas till ytterligare maskiner vilket eliminerar behovet av att analysera vilka systemkrav som behöver uppgraderas.
+</p>
+
+<p>
+    Mindre risk att förlora data. Att förlita sig på att en instans som hanterar data och utföranden ökar risken att förlora allt vid misslyckanden. Flera instanser skyddar från att allt går förlorat.
+</p>
+
+<p>
+    Ökad prestanda. Nätverkstrafik fördelas mellan flera maskiner med hjälp av flera endpoints.
+</p>
+
+<p>
+    Ökad komplexitet vid underhåll och utföranden. Det krävs mjukvara för att fördela trafik mellan instanserna i form av exempelvis en Azure Service Bus. Att skapa backups är mer komplicerat.
+</p>
+
+<p>
+    Högre kostnader när man lägger till flera servrar jämfört med att uppgradera befintliga.
+</p>
+
+<h3>För och nackdelar med vertikal skalning</h3>
+
+<p>
+    
+</p>
