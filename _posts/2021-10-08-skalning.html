@@ -82,13 +82,19 @@ background: "/img/posts/cloudcomp.jpg"
 
 <p>Med vertikal skalning till tröskeln för vad som går att uttöka under samma tier, så hamnar jag med 8 kärning processor 32gb ram och 250gb lagring till en månadskostnad av 490.56$ i månaden.</p>
 
-<p>Om jag istället skalar min ursprungliga App Service med 2kärning cpu 8gb ram och 250gb minne horisontellt över fyra instancer för att uppnå samma antal cpu kärnor (8) och ram-minne (32) kör jag fyra instanser av min App Service till samma månadskostnad (490.56$) men tjänar 750gb minne för samma pris till en total på 1000gb fördelat över fyra instanser.</p>
+<p>Om jag istället skalar min ursprungliga App Service med 2kärning cpu 8gb ram och 250gb lagring horisontellt över fyra instancer för att uppnå samma antal cpu kärnor (8) och ram-minne (32) kör jag fyra instanser av min App Service till samma månadskostnad (490.56$) men tjänar 750gb lagring för samma pris, med en total på 1000gb fördelat över fyra app service instanser.</p>
 
-<p>Slutsaten är alltså att man tjänar på att skala horisontellt med Azure App Service men att komplexiteten för applikationen ökar i samband med att köra flera instanser som jag beskrivit i mina för och nackdelar ovan.</p>
+<p>Slutsaten är alltså att man tjänar på att skala horisontellt med Azure App Service men att komplexiteten för applikationen ökar i samband med att köra flera instanser som jag beskrivit i mina för och nackdelar ovan där man nu behöver använda sig av en "load balancer" som Azure Service bus.</p>
 
 <h3>Skalning av virtuella maskiner</h3>
 
-<p></p>
+<p>Region North Europe och operativsystemet linux ubuntu, standard tier gäller för samtliga prismodeller.</p>
+
+<p>En VM maskin med 2 kärnig CPU 8gb ram och 5gb lagring kostar 78,16$ i månaden. Skalar jag upp vertikalt till 8 kärnig CPU med 32gb ram och 200gb lagring kostar detta 312,49$ i månaden.</p>
+
+<p>Om jag istället skalar ut den horisontellt så att jag har fyra instanser av vm maskiner med 2 kärniga CPU's 8gb ram och 50gb lagring så kostar även detta 312,49$ i månaden så uppnår jag samma motsvarighet i cpu, ram och lagring som i min vertikalt skalade VM maskin.</p>
+
+<p>Min slutsats är att de inte är någon priskillnad mellan vertikalt och horisontellt i Azure för dessa fall, men de finns givetvis även här en tröskel att nå vid att skala upp vertikalt där horisontell skalning är enda vägen att utöka prestanda.</p>
 
 <h3>Referenser</h3>
 
